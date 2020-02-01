@@ -25,10 +25,21 @@ class Generator:
         if(A==B):
             Generator.count = Generator.count+1
 
-for i in range(40000000):
-    Generator.Compare(next(Generator.genA()) , next(Generator.genB()))
+# for i in range(40000000):
+#     Generator.Compare(next(Generator.genA()) , next(Generator.genB()))
+    def run():
+        c=0
+        while(True):
+            if(Generator.count<588):
+                Generator.Compare(next(Generator.genA()) , next(Generator.genB()))
+                c = c+1
+            else:
+                return c
 
-print("Count:", Generator.count)
+cycles = Generator.run()
+if(cycles<=40000000):
+    print("Count : ", Generator.count)  
+    print("turns :", cycles)
 end = time.time()
 print("Time elapsed: ", int(end-start), " Seconds")
 
